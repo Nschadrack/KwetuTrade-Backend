@@ -81,12 +81,8 @@ WSGI_APPLICATION = 'kwetu_trade.wsgi.application'
 # print(dir(os.environ))
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'KWETU_TRADE',
-        'USER': 'Nschadrack',
-        'PASSWORD': 'schadrack1@',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'KWETU_TRADE.sqlite3'),
     }
 }
 
