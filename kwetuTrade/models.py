@@ -227,7 +227,7 @@ class CoffeeShippingCountryPrice(models.Model):
 
 
     def __str__(self):
-        return self.country + "   " + self.shipping_fee.currency + str(self.price)
+        return self.country + "   "  + str(self.price)
 
 
 class AnimalShippingCountryPrice(models.Model):
@@ -240,7 +240,7 @@ class AnimalShippingCountryPrice(models.Model):
 
 
     def __str__(self):
-        return self.country + "   " + self.shipping_fee.currency + str(self.price)
+        return self.country + "   " + str(self.price)
 
 
 
@@ -254,7 +254,7 @@ class MaterialShippingCountryPrice(models.Model):
 
 
     def __str__(self):
-        return self.country + "   " + self.shipping_fee.currency + str(self.price)
+        return self.country + "   " + str(self.price)
 
 
 class ChemicalShippingCountryPrice(models.Model):
@@ -267,7 +267,7 @@ class ChemicalShippingCountryPrice(models.Model):
 
 
     def __str__(self):
-        return self.country + "   " + self.shipping_fee.currency + str(self.price)
+        return self.country + "   " + str(self.price)
 
 
 ####################################### ORDER MODEL ##########################################################################
@@ -439,7 +439,7 @@ class OrderNotOnSite(models.Model):
 
 
     def __str__(self):
-        return f"special order {self.order_number} for {self.customer.user.first_name} {self.customer.user.last_name}"
+        return f"special order {self.order_number}"
 
 
 
