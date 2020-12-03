@@ -26,7 +26,7 @@ SECRET_KEY = 'c=#cho9t)x-5&c%gq04i8vn9y8!w5@*nz@b=hs8afgky@yv9a!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['45.79.49.126', 'kwetutrade.com']
 
 
 # Application definition
@@ -130,6 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # STATICFILES_DIRS =[
@@ -142,14 +143,6 @@ MEDIA_URL = '/media/'
 
 
 # mail configurations
-
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "localhost"
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = "niyibizischadrack@gmail.com"
-# EMAIL_HOST_PASSWORD = "schadrack1@"
-
 
 
 CORS_ORIGIN_WHITELIST = [
