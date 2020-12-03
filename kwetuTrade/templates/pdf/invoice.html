@@ -1,0 +1,143 @@
+{% load mathfilters %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Kwetu Trade| Invoice generator</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 16px;
+                font-weight: 100;
+                text-align: left;
+                color: #007cae;
+            }
+            .title-left {
+                font-size: 18px;
+                font-weight: 100;
+                float: left;
+               /* text-align: right;*/
+               padding: 0px;  
+            }
+            .title-left span {
+                color: #007cae;
+            }
+            .title-right {
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+                font-size: 18px;
+                /* border-bottom: 1px solid black; */
+            }
+            .title-right span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+                width: 100%;
+                position: relative;
+            }
+            .from_kwetu{
+                clear: both;
+                font-weight: bold;
+                margin-left: 300px;
+                margin-top: -10px;
+            }
+            .bill-to-customer{
+                width: 40%;
+                float: left;
+                clear: both;
+                margin: 5px 0px;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            .invoice-items{
+                margin-top: -10px;
+                /* border-top: 1px solid black; */
+            }
+            /* .invoice-items table thead{
+                border-bottom: 1px solid black;
+            } */
+            .invoice-items table tr th{
+                text-align: left;
+            }
+            .last-p{
+                margin-top: 30px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title-left'>Invoice # {{invoice_id}}</p>
+            </div>
+        <div>
+        <div class='details'>
+            <div class="from_kwetu">
+                Company: {{ company_name }}<br/>
+                Address:  {{ address }}<br/>
+                E-mail: {{ email }}
+            </div>
+            <br/>
+            <div class="bill-to-customer">
+                Bill to: {{ customer_name }}<br/>
+                E-mail:  {{ customer_email }}<br/>
+                Tel: {{ customer_phone }}<br/>
+                Address: {{ customer_address }}<br/>
+                Zip/Post code: {{ customer_zipCode }}<br/>
+                Order date: {{ ordered_date }}<br/>
+                Invoice date: {{ invoice_date }}
+            </div>
+            <p class="title-right">Order Number # {{order_number}}</p>
+            <!-- <hr class='hrItem' /> -->
+            <div class="invoice-items">
+                <table>
+                    <thead>
+                        <tr style="border-bottom: 1px solid black; border-top: 1px solid black;">
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in invoice_items %}
+                            <tr>
+                                <td>{{ item.item_name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td>${{ item.price }}</td>
+                                <td>$ {{item.price|mul:item.quantity}}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr style="border-top: 1px solid black;">
+                            <td colspan="3" style="text-align: right; border-bottom: none; font-weight: bold;">Sub ground total price: </td>
+                            <td tyle="text-align: right; font-weight: bold;">$ {{amount}}</td>
+                        </tr>
+                        <tr style="border-bottom: none;">
+                            <td colspan="3" style="text-align: right;font-weight: bold;">shipping fee: </td>
+                            <td tyle="text-align: right; font-weight: bold;">$ {{ shipping_fee }}</td>
+                        </tr>
+                        <tr style="border-bottom: none;">
+                            <td colspan="3" style="text-align: right; font-weight: bold;">Ground total paid:</td>
+                            <td tyle="text-align: right; font-weight: bold;">$ {{ ground_total }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="last-p">We promise our clients exceptional service</p>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
