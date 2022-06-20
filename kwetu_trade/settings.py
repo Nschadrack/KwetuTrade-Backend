@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c=#cho9t)x-5&c%gq04i8vn9y8!w5@*nz@b=hs8afgky@yv9a!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['kwetutrade-backend.herokuapp.com', '127.0.0.1', 'localhost']
 
