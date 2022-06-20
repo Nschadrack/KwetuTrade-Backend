@@ -22,7 +22,7 @@ from django.conf.urls import url
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('nschadrack/admin/', admin.site.urls),
     path('', include("kwetuTrade.urls", namespace="kwetuTrade")),
 ]
 
