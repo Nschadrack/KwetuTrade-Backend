@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c=#cho9t)x-5&c%gq04i8vn9y8!w5@*nz@b=hs8afgky@yv9a!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['45.79.49.126', 'kwetutrade.com']
+ALLOWED_HOSTS = ['kwetutrade-backend.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -81,8 +81,13 @@ WSGI_APPLICATION = 'kwetu_trade.wsgi.application'
 # print(dir(os.environ))
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'KWETU_TRADE.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': os.path.join(BASE_DIR, 'KWETU_TRADE.sqlite3'),
+        'NAME': 'd2gtv1qjseb3ea',
+        'PORT': 5432,
+        'USER': 'fzkqfkedgdpwdx',
+        'HOST': 'ec2-52-71-69-66.compute-1.amazonaws.com',
+        'PASSWORD': '6931ed589326c6b68f11b3e84aa79d4306f5f18ca549df298c0a3af668092c1e'
     }
 }
 
@@ -145,6 +150,8 @@ MEDIA_URL = '/media/'
 # mail configurations
 
 
-CORS_ORIGIN_WHITELIST = [
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://m-notes.netlify.app"
 ]
