@@ -1,1 +1,1 @@
-web: gunicorn mynotes.wsgi --log-file -
+web: gunicorn kwetu_trade.wsgi --log-file -
